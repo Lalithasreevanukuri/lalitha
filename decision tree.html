@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Decision Tree</title>
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #000;
+      color: #fff;
+      padding: 40px;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    .btn {
+      background-color: #ffd369;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #eec760;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Decision Tree Predictor</h1>
+  <p>Enter values (e.g., age and income):</p>
+  <input type="number" id="age" placeholder="Age">
+  <input type="number" id="income" placeholder="Income">
+  <button class="btn" onclick="predict()">Predict</button>
+  <div id="result"></div>
+
+  <script>
+    function predict() {
+      const age = parseInt(document.getElementById('age').value);
+      const income = parseFloat(document.getElementById('income').value);
+      
+      let result;
+      if (age < 30 && income > 50000) {
+        result = "Likely to Buy";
+      } else if (age >= 30 && income < 40000) {
+        result = "Unlikely to Buy";
+      } else {
+        result = "Moderate Interest";
+      }
+
+      document.getElementById('result').innerText = "Prediction: " + result;
+    }
+  </script>
+</body>
+</html>
